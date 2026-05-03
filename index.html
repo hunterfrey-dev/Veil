@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Veil - Welcome to Digital Independence</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2b2d42;
+      --secondary: #8d99ae;
+      --accent: #517ff3;
+      --bg: #f7f8fa;
+      --white: #fff;
+      --shadow: 0 6px 24px rgba(44, 45, 52, 0.09);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--primary);
+    }
+    header, section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 82vh;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border-radius: 0 0 36px 36px;
+      text-align: center;
+    }
+    header img {
+      width: 90px;
+      margin-bottom: 28px;
+    }
+    .headline {
+      font-size: 2.7rem;
+      font-weight: 700;
+      margin: 0 0 22px;
+      color: var(--primary);
+      letter-spacing: -1.5px;
+    }
+    .subtitle {
+      font-size: 1.24rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      color: var(--secondary);
+    }
+    .cta-btn {
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1.08rem;
+      border: none;
+      border-radius: 32px;
+      padding: 16px 38px;
+      margin-top: 28px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(68,110,255,0.06);
+      transition: background 0.2s;
+    }
+    .cta-btn:hover {
+      background: #2b4ed6;
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--primary);
+      text-align: center;
+    }
+    .features, .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 38px;
+      margin: 40px 0;
+    }
+    .feature-card, .benefit-card {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      transition: transform 0.16s;
+    }
+    .feature-card:hover, .benefit-card:hover {
+      transform: translateY(-7px) scale(1.027);
+    }
+    .feature-card h3, .benefit-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .feature-card p, .benefit-card p {
+      color: var(--secondary);
+      font-size: 1.01rem;
+    }
+
+    .testimonials {
+      background: #e8ebf1;
+      padding: 54px 24px;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .testimonials-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 36px;
+      margin-top: 34px;
+    }
+    .testimonial {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 30px 22px;
+      box-shadow: 0 3px 14px rgba(139,151,174,0.13);
+      text-align: left;
+    }
+    .testimonial p {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+    .testimonial strong {
+      color: var(--secondary);
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .pricing {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+      margin: 44px 0 0 0;
+    }
+    .plan {
+      background: var(--white);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 38px 36px;
+      min-width: 270px;
+      text-align: center;
+      flex: 1;
+      max-width: 330px;
+    }
+    .plan h3 {
+      font-size: 1.28rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+    .plan .price {
+      font-size: 2.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 9px;
+    }
+    .plan ul {
+      list-style: none;
+      padding: 0; margin: 27px 0 0 0;
+      color: var(--secondary);
+      font-size: 1.02rem;
+    }
+    .plan ul li {
+      margin-bottom: 11px;
+    }
+
+    .contact-section {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      margin: 62px 0 44px 0;
+      padding: 46px 28px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .contact-section form {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contact-section label {
+      font-size: 1.06rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 3px;
+      display: block;
+      text-align: left;
+    }
+    .contact-section input,
+    .contact-section textarea {
+      border: 1.3px solid #d3d8e3;
+      border-radius: 7px;
+      padding: 12px;
+      font-size: 1.03rem;
+      background: var(--bg);
+      color: var(--primary);
+      transition: border 0.15s;
+      width: 100%;
+    }
+    .contact-section input:focus,
+    .contact-section textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+    .contact-section button {
+      margin-top: 9px;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 30px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      padding: 13px 0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-section button:hover {
+      background: #2b4ed6;
+    }
+    @media (max-width: 800px) {
+      header, section {
+        padding: 40px 6vw;
+      }
+      .features, .benefits {
+        grid-template-columns: 1fr;
+      }
+      .pricing {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        min-height: 72vh;
+        border-radius: 0 0 20px 20px;
+      }
+      .contact-section {
+        padding: 34px 8vw;
+      }
+      .plan {
+        padding: 32px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Veil">
+    <h1 class="headline">Welcome to Digital Independence</h1>
+    <p class="subtitle">Your home should be the one place where you aren't being watched.<br>Meet <strong>Veil</strong>, the smart home assistant designed for those who refuse to trade privacy for convenience.</p>
+    <a href="#leadform"><button class="cta-btn">Get Early Access</button></a>
+  </header>
+  
+  <section id="features">
+    <h2 class="section-title">Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Privacy First</h3>
+        <p>All voice data processed locally on-device, not sent to the cloud. No always-on listening, and no hidden recording.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Seamless Integration</h3>
+        <p>Effortlessly controls your smart lights, thermostat, security, and more – all with robust compatibility.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Intuitive Voice</h3>
+        <p>Advanced natural language understanding with quick, accurate responses—without leaking your conversations.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Customizable Wake Words</h3>
+        <p>You decide how to activate Veil, eliminating accidental triggers from everyday conversation or TV.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="benefits">
+    <h2 class="section-title">Benefits</h2>
+    <div class="benefits">
+      <div class="benefit-card">
+        <h3>True Digital Independence</h3>
+        <p>Enjoy all the conveniences of a smart home—with peace of mind that your data is truly yours.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>No Tracking, Ever</h3>
+        <p>Veil never builds profiles, sells your info, or listens when you don’t want it to.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Family-Safe By Design</h3>
+        <p>Your children’s voices and routines are never stored, analyzed, or monetized.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Own Your Assistant</h3>
+        <p>Full offline functionality with open transparency—control settings from an intuitive dashboard.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="testimonials">
+    <h2 class="section-title">What Our Users Say</h2>
+    <div class="testimonials">
+      <div class="testimonials-list">
+        <div class="testimonial">
+          <p>"Veil gives me the smart home convenience I want without the privacy nightmares. Finally, a product I don't have to worry about in my own home."</p>
+          <strong>— Alexandra T., Parent</strong>
+        </div>
+        <div class="testimonial">
+          <p>"I switched from a major brand and couldn’t be happier. Veil feels modern but respects my boundaries. Highly recommended to anyone concerned about surveillance."</p>
+          <strong>— Marcus W., Security Consultant</strong>
+        </div>
+        <div class="testimonial">
+          <p>"Setup was a breeze, and I love being able to change wake words. It's refreshing to see a company put user privacy before profits."</p>
+          <strong>— Priya D., Designer</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="pricing">
+    <h2 class="section-title">Pricing</h2>
+    <div class="pricing">
+      <div class="plan">
+        <h3>Veil Assistant</h3>
+        <div class="price">$229</div>
+        <ul>
+          <li>One-time purchase</li>
+          <li>No subscription required</li>
+          <li>Full offline use</li>
+          <li>Free software updates</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>Veil Plus</h3>
+        <div class="price">$329</div>
+        <ul>
+          <li>Includes Veil Assistant</li>
+          <li>Advanced home automation hub</li>
+          <li>Premium support</li>
+          <li>2-year warranty</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact">
+    <div class="contact-section">
+      <h2 class="section-title">Contact Us</h2>
+      <p>Questions? Want to request early access?<br>Fill out the form and our privacy-focused team will be in touch.</p>
+      <form id="leadform" autocomplete="on">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your full name">
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@email.com">
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required placeholder="How can we help you?"></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
